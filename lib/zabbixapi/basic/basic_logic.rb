@@ -59,6 +59,15 @@ class ZabbixApi
       )
     end
 
+    def get_data_custom_params(data)
+      log "[DEBUG] Call get_data_custom_params with parametrs: #{data.inspect}"
+
+      @client.api_request(
+        :method => "#{method_name}.get",
+        :params => data
+      )
+    end
+
     def dump_by_id(data)
       log "[DEBUG] Call dump_by_id with parametrs: #{data.inspect}"
 
