@@ -9,6 +9,7 @@ require "zabbixapi/basic/basic_logic"
 require "zabbixapi/classes/applications"
 require "zabbixapi/classes/errors"
 require "zabbixapi/classes/graphs"
+require "zabbixapi/classes/history"
 require "zabbixapi/classes/hostgroups"
 require "zabbixapi/classes/hosts"
 require "zabbixapi/classes/items"
@@ -102,5 +103,8 @@ class ZabbixApi
     @mediatypes ||= Mediatypes.new(@client)
   end
 
+  def history
+    @history ||= History.new(@client)
+  end
 end
 
