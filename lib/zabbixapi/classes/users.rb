@@ -1,6 +1,10 @@
 class ZabbixApi
   class Users < Basic
-
+    
+    def array_flag
+      true
+    end
+    
     def method_name
       "user"
     end
