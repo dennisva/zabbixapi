@@ -31,6 +31,17 @@ class ZabbixApi
       )
       result ? result['mediaids'][0].to_i : nil
     end
+    
+    def get_medias(data)
+      result = @client.api_request(
+        :method => "usermedia.get",
+        :params => {
+          :userids => data[:userid],
+          :output => "extend"
+        }
+      )
+      result ? result : nil
+    end
 
   end
 end
