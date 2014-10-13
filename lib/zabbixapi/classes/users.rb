@@ -32,6 +32,12 @@ class ZabbixApi
       result ? result['mediaids'][0].to_i : nil
     end
     
+    # Get all medias for a user
+    # 
+    # * *Args*    :
+    #   - +data+ -> Hash with :userid => "userid"
+    # * *Returns* :
+    #   - result -> Array of user medias
     def get_medias(data)
       result = @client.api_request(
         :method => "usermedia.get",
@@ -43,13 +49,12 @@ class ZabbixApi
       result ? result : nil
     end
     
-    # replace a users media with the provided media. This just blows away existing media.
-    # data[:userid] => userid
-    # data[:medias] => [ {:mediatypeid => 1, :sendto => "support@company.com", :active => 0, :severity => 0x3C,
-    #                   :period => "1-7,00:00-23:59;"}, {:mediatypeid => 2, :sendto => "13067138956",
-    #                   :active => 0, :severity => 0x30, :period => "1-7,00:00-23:59;"} ]
-    # :active, 0 is enabled
-    # :severity, bit mask MSB to LSB (Disaster|High|Average|Warning|Info|None)
+    # Replace all medias for a user
+    # 
+    # * *Args*    :
+    #   - +data+ -> Hash with :userid => "userid", :medias => [ "array_of_medias" ]
+    # * *Returns* :
+    #   - Integer
     def update_medias(data)
       result = @client.api_request(
         :method => "user.updatemedia",
@@ -59,7 +64,7 @@ class ZabbixApi
           :output => "extend"
         }
       )
-      result ? result : nil
+      result ? result['userids'][0].to_i : nil
     end
   end
 end
