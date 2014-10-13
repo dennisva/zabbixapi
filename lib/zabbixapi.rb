@@ -6,6 +6,7 @@ require "zabbixapi/basic/basic_func"
 require "zabbixapi/basic/basic_init"
 require "zabbixapi/basic/basic_logic"
 
+require "zabbixapi/classes/actions"
 require "zabbixapi/classes/applications"
 require "zabbixapi/classes/errors"
 require "zabbixapi/classes/graphs"
@@ -23,6 +24,7 @@ require "zabbixapi/classes/unusable"
 require "zabbixapi/classes/usergroups"
 require "zabbixapi/classes/usermacros"
 require "zabbixapi/classes/users"
+
 
 class ZabbixApi
 
@@ -106,5 +108,10 @@ class ZabbixApi
   def history
     @history ||= History.new(@client)
   end
+  
+  def actions
+    @actions ||= Actions.new(@client)
+  end
+  
 end
 
