@@ -4,10 +4,6 @@ class ZabbixApi
     def array_flag
       true
     end
-
-    def keys
-      "itemid"
-    end
     
     def method_name
       "item"
