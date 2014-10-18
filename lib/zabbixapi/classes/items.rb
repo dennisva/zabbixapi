@@ -5,6 +5,10 @@ class ZabbixApi
       true
     end
 
+    def keys
+      "itemid"
+    end
+    
     def method_name
       "item"
     end
