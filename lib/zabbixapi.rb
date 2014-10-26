@@ -13,6 +13,7 @@ require "zabbixapi/classes/graphs"
 require "zabbixapi/classes/history"
 require "zabbixapi/classes/hostgroups"
 require "zabbixapi/classes/hosts"
+require "zabbixapi/classes/hostinterfaces"
 require "zabbixapi/classes/items"
 require "zabbixapi/classes/mediatypes"
 require "zabbixapi/classes/proxies"
@@ -63,6 +64,10 @@ class ZabbixApi
 
   def hosts
     @hosts ||= Hosts.new(@client)
+  end
+  
+  def hostinterfaces
+    @hostinterfaces ||= HostInterfaces.new(@client)
   end
 
   def applications
