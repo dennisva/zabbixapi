@@ -9,6 +9,7 @@ require "zabbixapi/basic/basic_logic"
 require "zabbixapi/classes/actions"
 require "zabbixapi/classes/applications"
 require "zabbixapi/classes/errors"
+require "zabbixapi/classes/events"
 require "zabbixapi/classes/graphs"
 require "zabbixapi/classes/history"
 require "zabbixapi/classes/hostgroups"
@@ -118,5 +119,9 @@ class ZabbixApi
     @actions ||= Actions.new(@client)
   end
   
+  def events
+    @events ||= Events.new(@client)
+  end
+
 end
 
